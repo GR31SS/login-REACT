@@ -31,13 +31,13 @@ module.exports = (app) => {
         if(!email) {
             return res.send({
                 success: false,
-                message: 'Error: Missing email'
+                message: 'Error: Missing Email'
             });
         }
         if(!password) {
             return res.send({
                 success: false,
-                message: 'Error: Missing password'
+                message: 'Error: Missing Password'
             });
         }
 
@@ -69,11 +69,12 @@ module.exports = (app) => {
         newUser.password = newUser.generateHash(password);
         newUser.save((err, user) => {
             if(err) {
-                return res.end({                    success: false,
+                return res.send({
+                    success: false,
                     message: 'Error: Server Error'
                 });
             }
-            return res.end({
+            return res.send({
                 success: true,
                 message: 'Account Created'
             });

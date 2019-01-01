@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const UserSession = new mongoose.Schema({
+const UserSessionSchema = new mongoose.Schema({
   userId: {
     type: Number,
     default: -1
