@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'whatwg-fetch';
+// import 'whatwg-fetch';
 
 import {
   getFromStorage,
@@ -21,32 +21,6 @@ export default class Signin extends Component {
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
 
     this.onSignIn = this.onSignIn.bind(this);
-  }
-
-  componentDidMount() {
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
-      // Verify token
-      fetch('/api/account/verify?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token,
-              isLoading: false
-            });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
   }
 
   onTextboxChangeSignInEmail(event) {
@@ -87,13 +61,8 @@ export default class Signin extends Component {
         console.log('json', json);
         if (json.success) {
           setInStorage('the_main_app', { token: json.token });
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: '',
-            token: json.token,
-          });
+          this.props.signIn(json.message, false, '', '', json.token)
+
         } else {
           this.setState({
             signInError: json.message,
