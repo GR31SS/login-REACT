@@ -1,6 +1,6 @@
+// React
 import React from 'react';
 import { render } from 'react-dom';
-
 import {
   BrowserRouter as Router,
   Route,
@@ -8,13 +8,13 @@ import {
   Switch
 } from 'react-router-dom'
 
+// Components
 import App from './components/App/App';
 import NotFound from './components/App/NotFound';
-
-import Home from './components/Home/Home';
-
+import Home from './components/home/home';
 import HelloWorld from './components/HelloWorld/HelloWorld';
 
+// Style
 import './styles/styles.scss';
 
 render((

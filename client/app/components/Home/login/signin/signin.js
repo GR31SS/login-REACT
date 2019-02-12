@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import {
   getFromStorage,
   setInStorage
-} from '../../utils/storage';
+} from '../../../../utils/storage';
 
 export default class Signin extends Component {
   constructor(props) {

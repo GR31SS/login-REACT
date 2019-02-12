@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-import Signup from '../Account/Signup'
-import Signin from '../Account/Signin'
+import Signup from './login/signup/signup'
+import Signin from './login/signin/signin'
 
 import {
   getFromStorage,
